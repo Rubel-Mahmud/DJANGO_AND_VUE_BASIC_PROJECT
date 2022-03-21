@@ -27,8 +27,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'corsheaders',
     'restapi'
 ]
+
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
@@ -36,7 +38,14 @@ REST_FRAMEWORK = {
     ]
 }
 
+# CORS_ALLOW_ALL_ORIGINS: True // This is an wrong syntax has in documetation
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
